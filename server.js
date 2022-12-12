@@ -16,7 +16,7 @@ app.use(fileUpload({
 const PORT = process.env.PORT || 4000
 app.use(
     cors({
-        origin: process.env.ALLOWED_CLIENTS,//["http://localhost:3000"],
+        origin: '*',//["http://localhost:3000"],
         methods: ['GET','POST','PATCH'],
         credentials: true
     })
