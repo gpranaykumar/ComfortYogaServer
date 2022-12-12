@@ -14,10 +14,9 @@ app.use(fileUpload({
 }))
 
 const PORT = process.env.PORT || 4000
-
 app.use(
     cors({
-        origin: ["http://localhost:3000"],
+        origin: process.env.ALLOWED_CLIENTS,//["http://localhost:3000"],
         methods: ['GET','POST','PATCH'],
         credentials: true
     })
@@ -44,4 +43,5 @@ mongoose.connect(URI, {
 
 app.listen(PORT, () =>{
     console.log('Server is running on port ', PORT);
+    // console.log(process.env.ALLOWED_CLIENTS)
 })
